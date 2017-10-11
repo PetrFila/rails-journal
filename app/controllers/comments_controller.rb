@@ -1,18 +1,13 @@
 class CommentsController < ApplicationController
-    protect_from_forgery with: :exception
 
-    def index
-        @article = Article.find(params[:photo_id])
-        @comments = Comment.all
-    end
-    
-    def edit
-
+    def create
+        @article = Article.find(params[:article_id])
+        @comment = @article.comments.create(comment_params)
+        redirect_to article_path(@article)
     end
 
-
-    def delete
-
+    private
+    def comment_params
+        params.require(:comment).permit(:commenter, :body)
     end
-    
 end
