@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
     
     def index
-        @article = Article.all
+        @articles = Article.all
         # [#<Article id: 1, title: "hii", text: "bye1", ... ]
 
         # @articles = Article.connection.select_all("SELECT * FROM articles")
