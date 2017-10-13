@@ -15,4 +15,9 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to user_path
   end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :created_at, :updated_at, :password_digest)
+  end
 end

@@ -8,7 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # hash algorithm for hashing passwords
-gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
+#gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
+gem 'bcrypt', '~> 3.1.7'
 
 
 gem 'rails', '~> 5.1.4'
