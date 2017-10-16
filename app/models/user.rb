@@ -12,4 +12,3 @@ class User < ApplicationRecord
 end
 
 
-#format: { with: VALID_EMAIL_REGEX },
