@@ -9,12 +9,101 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+   
 
-    <%= yield %>
     
-    <%= debug(params) if Rails.env.development? %>
+    <div class="main-container mdl-layout mdl-js-layout">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      
+      <div class="mdl-layout__header mdl-layout__header--fixed-header">
+        <!-- Top row, always visible -->
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Pentagram</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                      mdl-textfield--floating-label mdl-textfield--align-right">
+            <label class="mdl-button mdl-js-button mdl-button--icon"
+                   for="waterfall-exp">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" name="sample"
+                     id="waterfall-exp">
+            </div>
+            <!-- Right aligned menu below button -->
+          <button id="demo-menu-lower-right"
+          class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+
+          <!-- Navigation -->
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="demo-menu-lower-right">
+            <% if logged_in? %>
+              <%= link_to "Users", '#', class: "mdl-menu__item" %>
+              <%= link_to "Profile", current_user, class: "mdl-menu__item" %>
+              <%= link_to "Settings", '#', class: "mdl-menu__item" %>
+              <%= link_to "Log out", logout_path, method: :delete, class: "mdl-menu__item" %>
+            <% else %>
+              <%= link_to "Log in", login_path, class: "mdl-menu__item" %>
+            <% end %>
+          </ul>
+
+          </div>
+        </div>
+         
+          
+      </div>
+     
+
+      
+    
+      <div main class="mdl-layout__content">
+        <div class="page-content">
+          
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--1-col"></div>
+          
+                <div class="mdl-cell mdl-cell--10-col">
+                  <%= yield %>
+                  <%= debug(params) if Rails.env.development? %>
+                </div>
+              
+              <div class="mdl-cell mdl-cell--1-col"></div>
+                
+            </div>
+        </div>
+      </div>
+    
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+   
+
+
+  
+
+
+    
+    
+    
   </body>
 </html>
