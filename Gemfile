@@ -12,7 +12,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 gem 'material_design_lite-sass'
 gem 'rails-controller-testing'
-
+gem 'will_paginate',           '3.1.6'
 
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record

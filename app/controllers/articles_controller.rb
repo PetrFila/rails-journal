@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
 
         @article = Article.new(article_params)
         # @article.user = need to connect current session with the database - need to get the user/article ID connected 
+        
         #a message is saved to the database
         if @article.save
             redirect_to @article
